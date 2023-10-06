@@ -1,0 +1,335 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --accent-color: #00796b;
+  --foreground-color: #0F1419;
+  --background-color: white;
+  --gray-dark-color: #66757F;
+  --gray-light-color: #edeff1;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App main select {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  border: none;
+  box-shadow: 1px 2px #b1b1b1;
+}
+
+.loading {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.container-thread-list {
+  display: grid;
+  grid-template-columns: 2fr repeat(1, .7fr);
+  justify-content: center;
+  column-gap: 6vh;
+}
+
+.container-thread-list .item {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  margin-right: 10px;
+}
+
+.container-thread-list .leaderboards h1 {
+  margin-top: 0;
+}
+
+.container-thread-list .leaderboards div.item {
+  display: block;
+}
+
+.card {
+  padding: 10px;
+  border: 3px solid #282c34;
+  box-shadow: 4px 4px 5px #0000005f;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  transition: all .2s ease;
+  height: fit-content;
+}
+
+.card h2 {
+  min-height: 60px;
+}
+
+.card:not(:last-child) {
+  margin-right: 10px;
+}
+
+.card:hover {
+  background-color: #ef95a36e;
+  cursor: pointer;
+  transform: skewY(.4deg);
+}
+
+.card .content {
+  margin: 10px 0;
+  min-height: 7vh;
+  max-height: 7vh;
+  overflow: hidden;
+}
+
+.card .owner {
+  color: #EB455F;
+  font-weight: bold;
+  margin-right: 2vw;
+}
+
+.card .commentCard {
+  background-color: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-bottom: 0;
+}
+.card #category {
+  background-color: #EB455F;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.card .card-thread-attribute {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.item .card .profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card .profile img {
+  border-radius: 50%;
+}
+
+.card .profile span {
+  display: block;
+  margin-left: 15px;
+}
+
+.card .card-thread-attribute #category:empty {
+  display: none;
+}
+
+.card .card-thread-attribute .vote {
+  margin-top: 30px;
+}
+
+.card .card-thread-attribute .vote span {
+  margin-right: 10px;
+  transition: all .3s ease-in-out;
+}
+.card .card-thread-attribute .vote span:hover {
+  font-weight: 500;
+}
+
+.card .card-thread-attribute .vote span svg {
+  margin-right: 5px;
+  fill: #6f6f6f;
+}
+
+.card .card-thread-attribute .vote span svg.liked {
+  fill: #EB455F;
+}
+
+/* Detail */
+.container-thread {
+  padding: 0 5vw;
+    
+}
+
+#detail .container-thread-list {
+  justify-content: unset;
+  grid-template-columns: unset;
+  column-gap: 0;
+}
+
+#detail .container-thread-list .item {
+  grid-template-columns: repeat(4, 2fr);
+}
+
+.detail h3, .detail span {
+  margin-top: 0;
+  display: inline-block;
+}
+
+.detail .profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.detail .profile span {
+  margin-left: 20px;
+}
+
+.detail .profile img {
+  border-radius: 50%;
+  border: 2px solid #282c34;
+}
+
+.container-thread .comment { 
+  background-color: unset;
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-weight: 700;
+  border: 2px solid #282c34;
+  position: relative;
+  margin-bottom: 3vh;
+}
+
+.container-thread .comment:hover {
+  cursor: pointer;
+  background-color: #282c34;
+  color: white;
+}
+/* end detail */
+
+/* login */
+.container-login {
+  height: 80vh;
+  justify-content: space-between;
+}
+
+.container-login aside {
+  position: absolute;
+  clear: both;
+  right: 3vh;
+  top: 16.5vh;
+  z-index: -1;
+}
+
+.container-login article {
+  position: relative;
+  z-index: 1;
+}
+
+.register .form-login {
+  height: 75vh !important;
+  margin: 10vh auto !important;
+}
+
+.form-login label {
+  margin-top: 10px;
+  display: block;
+}
+
+.container-login .form-login {
+  width: 500px;
+  height: 60vh;
+  border: 3px solid #282c34;
+  display: flex;
+  border-radius: 25px;
+  flex-direction: column;
+  padding: 10px;
+  margin: 15vh auto;  
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  backdrop-filter: saturate(200%) blur(30px);
+}
+
+.container-login .form-login p:not(:first-child) { 
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.container-login .form-login h1 { 
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.container-login .form-login input {
+  width: 98%;
+  height: 5vh;
+  border-radius: 10px;
+  border: 2px solid #282c34;
+}
+
+.container-login .form-login .btn-register {
+  margin-right: 10px;
+  background-color: #00bc39;
+  border: 2px solid #00bc39 !important;
+  color: white;
+  font-weight: bold;
+  transition: all .3s;
+}
+
+.container-login .form-login .btn-register:hover {
+  background-color: #03ff4f;
+  border: 2px solid #00bc39;
+  cursor: pointer;
+}
+
+.container-login .form-login .btn-register:active {
+  background-color: #00bc39;
+  border: 2px solid #00bc39;
+  transform: scale(.9);
+  color: white;
+  cursor: pointer;
+}
+
+.container-login .form-login .btn-login:hover {
+  background-color: #6f6f6f;
+  color: white;
+  cursor: pointer;
+}
+
+.container-login .form-login .btn-login, .container-login .form-login .btn-register{
+  width: 49%;
+  padding: 10px;
+  margin-top: 35px;
+  border-radius: 10px;
+  border: 2px solid #282c34;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1016px) {
+  .card {
+    height: auto;
+  }
+  .card .card-thread-attribute {
+    flex-direction: column;
+  }
+  .card .card-thread-attribute p {
+    margin: 0;
+    margin-top: 15px;
+  }
+}
+
+@media only screen and (max-width: 1153px) {
+  .card .card-thread-attribute{
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 740px) {
+  .container-thread-list {
+    grid-template-columns: repeat(1, 1fr)
+  }
+
+  .container-thread-list .item {
+    grid-template-columns: repeat(1, 1fr)
+  }
+}

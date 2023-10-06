@@ -1,0 +1,136 @@
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(50, 50, 50, 0.651);
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalWrapper {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    animation: showModal .2s;
+}
+
+.modalContainer {
+  width: 500px;
+  height: 550px;
+  border-radius: 12px;
+  background-color: hsla(0, 0%, 100%, .8);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  backdrop-filter: saturate(200%) blur(30px);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  z-index: 3;
+}
+
+.modalContainer .title h1 {
+  margin-top: 5px;
+}
+
+.modalContainer .title, .modalContainer .category {
+  display: inline-block;
+  text-align: center;
+}
+
+.modalContainer .category p{
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modalContainer .body {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.modalContainer .body p {
+  margin: 0;
+}
+
+.modalContainer textarea {
+  border-radius: 6px;
+  border: 2px solid #282c34;
+  font-family: monospace;
+  padding: 3px 10px;
+}
+
+.modalContainer .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer .footer button {
+  width: 150px;
+  height: 45px;
+  margin: 10px;
+  border: none;
+  border-radius: 8px; 
+  cursor: pointer;
+  border: 3px solid turquoise;
+}
+
+.modalContainer .footer button:hover {
+  background-color: turquoise;
+}
+
+#cancelBtn {
+  border: 3px solid crimson;
+}
+
+#cancelBtn:hover {
+  background-color: crimson;
+}
+
+.warning-notlogged {
+  height: auto;
+}
+
+.warning-notlogged sub {
+  font-size: 12px;
+}
+
+@keyframes showModal {
+  0% {
+    /* transform: translateY(-75vh); */
+    opacity: 0;
+  }
+  50% {
+    opacity: .7;
+  }
+  100% {
+    opacity: 1;
+    /* transform: translateY(0); */
+  }
+}
