@@ -9,7 +9,7 @@ function FilterThreads({ onFilter, threads, params }) {
 
     return (
       <select onChange={onFilterCategories} value={params}>
-        <option value="all">All</option>
+        <option value="all">All </option>
         {
             threads.map((thread) => (
               <option
