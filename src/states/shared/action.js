@@ -11,7 +11,7 @@ function asyncPopulateUserAndThread() {
             const threads = await api.getAllThread();
             const users = await api.getAllUsers();
 
-            dispatch(receiveThreadActionCreator(threads));
+            // dispatch(receiveThreadActionCreator(threads));
             dispatch(receiveUsersActionCreator(users));
         } catch (error) {
             if (error.message === 'Token maximum age exceeded') {
