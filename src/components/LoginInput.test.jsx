@@ -7,12 +7,14 @@
  *   - should call login function when login button is clicked
  */
 
-import { describe, it, expect, afterEach, vi } from "vitest";
+import {
+ describe, it, expect, afterEach, vi,
+} from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import * as matchers from '@testing-library/jest-dom/matchers';
-import LoginInput from "./LoginInput";
 import { BrowserRouter } from "react-router-dom";
+import LoginInput from "./LoginInput";
 
 expect.extend(matchers);
 
@@ -24,9 +26,9 @@ describe("LoginInput Component", () => {
     it("should handle email typing correctly", async () => {
         // Arrange
         render(
-            <BrowserRouter>
-                <LoginInput login={() => {}} />
-            </BrowserRouter>
+          <BrowserRouter>
+            <LoginInput login={() => {}} />
+          </BrowserRouter>,
         );
         const usernameInput = await screen.getByPlaceholderText("masukan email");
 
@@ -40,10 +42,10 @@ describe("LoginInput Component", () => {
     it("should handle password typing correctly", async () => {
         // Arrange
         render(
-            <BrowserRouter>
-                <LoginInput login={() => {}} />
-            </BrowserRouter>
-        )
+          <BrowserRouter>
+            <LoginInput login={() => {}} />
+          </BrowserRouter>,
+        );
         const usernameInput = await screen.getByPlaceholderText("masukan password");
 
         // Action
@@ -51,16 +53,16 @@ describe("LoginInput Component", () => {
 
         // assert
         expect(usernameInput).toHaveValue("usernametest");
-    })
+    });
 
     it("should call login function when login button is clicked", async () => {
         // Arrange
         const mockLogin = vi.fn();
         render(
-            <BrowserRouter>
-                <LoginInput login={mockLogin} />
-            </BrowserRouter>
-        )
+          <BrowserRouter>
+            <LoginInput login={mockLogin} />
+          </BrowserRouter>,
+        );
 
         const usernameInput = await screen.getByPlaceholderText("masukan email");
         await userEvent.type(usernameInput, "emailtest");
@@ -78,5 +80,5 @@ describe("LoginInput Component", () => {
             emailUser: "emailtest",
             passwordUser: "passwordtest",
         });
-    })
-})
+    });
+});

@@ -48,7 +48,7 @@ describe("Login spec", () => {
       cy.on("window:alert", (str) => {
           expect(str).to.equal('"password" is not allowed to be empty');
       });
-    })
+    });
 
     it("should display alert when email and password are wrong", () => {
       // mengisi email

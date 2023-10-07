@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Navigation from "../components/Navigation";
@@ -19,7 +19,8 @@ export default function LoginPage() {
         if (!emailUser) return alert('"id" is not allowed to be empty');
         if (!passwordUser) return alert('"password" is not allowed to be empty');
         dispatch(asyncSetAuthUser({ email: emailUser, password: passwordUser }));
-        if (authUser != null) navigate('/');
+        if (authUser != null) return navigate('/');
+        return false;
     };
 
     if (authUser !== null) navigate('/');

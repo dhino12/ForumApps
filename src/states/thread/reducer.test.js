@@ -6,7 +6,8 @@
  *  - should return the threads when given by RECEIVE_THREADS action
  *  - should return the thread with the new talk when given by ADD_THREAD action
  *  - should return the thread with the toggled like talk when given by TOGGLE_UPVOTE_THREAD action
- *  - should return the threads with the toggled like talk when given by TOGGLE_DOWNVOTE_THREAD action
+ *  - should return the threads with the toggled like talk when given
+*       by TOGGLE_DOWNVOTE_THREAD action
  *
  */
 
@@ -66,12 +67,12 @@ describe("threadReducers function", () => {
         expect(nextState).toEqual(action.payload.threads);
     });
 
-    it("should return the thread with the new talk when given by ADD_THREAD action", () => {
+    it("should return the thread with the new thread when given by ADD_THREAD action", () => {
         const initialState = [
             {
                 id: "thread-1",
-                title: "Thread Kedua",
-                body: "Ini adalah thread kedua",
+                title: "Thread Pertama",
+                body: "Ini adalah thread pertama",
                 category: "General",
                 createdAt: "2021-09-21T07:00:00.000Z",
                 ownerId: "users-1",
@@ -84,9 +85,9 @@ describe("threadReducers function", () => {
             type: "ADD_THREADS",
             payload: {
                 threads: {
-                    id: "thread-1",
-                    title: "Thread Pertama",
-                    body: "Ini adalah thread Pertama",
+                    id: "thread-2",
+                    title: "Thread Kedua",
+                    body: "Ini adalah thread Kedua",
                     category: "General",
                     createdAt: "2021-06-21T07:00:00.000Z",
                     ownerId: "users-1",
@@ -104,7 +105,7 @@ describe("threadReducers function", () => {
         expect(nextState).toEqual([action.payload.threads, ...initialState]);
     });
 
-    it("should return the thread with the toggled like talk when given by TOGGLE_UPVOTE_THREAD action", () => {
+    it("should return the thread with the toggled like thread when given by TOGGLE_UPVOTE_THREAD action", () => {
         const initialState = [
             {
                 id: "thread-1",
@@ -134,11 +135,11 @@ describe("threadReducers function", () => {
         // assert
         expect(nextState).toEqual([{
             ...initialState[0],
-            upVotesBy: [action.payload.userId]
+            upVotesBy: [action.payload.userId],
         }]);
     });
 
-    it("should return the thread with the toggled like talk when given by TOGGLE_DOWNVOTE_THREAD action", () => {
+    it("should return the thread with the toggled like thread when given by TOGGLE_DOWNVOTE_THREAD action", () => {
         const initialState = [
             {
                 id: "thread-1",
@@ -168,7 +169,7 @@ describe("threadReducers function", () => {
         // assert
         expect(nextState).toEqual([{
             ...initialState[0],
-            downVotesBy: [action.payload.userId]
+            downVotesBy: [action.payload.userId],
         }]);
     });
 });

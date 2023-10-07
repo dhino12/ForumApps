@@ -1,7 +1,4 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable consistent-return */
 /* eslint-disable react/prop-types */
-// eslint-disable-next-line no-unused-vars
 function FilterThreads({ onFilter, threads, params }) {
     const onFilterCategories = (event) => {
       onFilter(event.target.value);

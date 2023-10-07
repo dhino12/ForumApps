@@ -29,12 +29,6 @@
         "react/button-has-type": "off",
         "import/extensions": "off",
         "no-alert": "off",
-        "import/no-extraneous-dependencies": [
-            "error", 
-            {
-                "dependencies": true,
-                "devDependencies": true
-            }
-        ]
+        "no-underscore-dangle": "off"
     }
 }

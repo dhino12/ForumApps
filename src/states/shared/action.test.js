@@ -6,6 +6,15 @@
  *  - should dispatch action and call alert correctly when data fetching failed
  */
 
+import {
+ afterEach, beforeEach, describe, expect, it, vi,
+} from "vitest";
+import { hideLoading, showLoading } from "react-redux-loading-bar";
+import api from "../../utils/api";
+import { asyncPopulateUserAndThread } from "./action";
+import { receiveThreadActionCreator } from "../thread/action";
+import { receiveUsersActionCreator } from "../users/action";
+
 const fakeThreadsResponse = [
     {
         id: "thread-1",
@@ -30,13 +39,6 @@ const fakeUsersResponse = [
 ];
 
 const fakeErrorResponse = new Error("Ups, something went wrong");
-
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import api from "../../utils/api";
-import { asyncPopulateUserAndThread } from "./action";
-import { receiveThreadActionCreator } from "../thread/action";
-import { receiveUsersActionCreator } from "../users/action";
-import { hideLoading, showLoading } from "react-redux-loading-bar";
 
 describe("asyncPopulateUsersAndTalks thunk", () => {
     beforeEach(() => {
@@ -84,8 +86,8 @@ describe("asyncPopulateUsersAndTalks thunk", () => {
         await asyncPopulateUserAndThread()(dispatch);
 
         // assert
-        expect(dispatch).toHaveBeenCalledWith(showLoading())
-        expect(dispatch).toHaveBeenCalledWith(hideLoading())
-        expect(window.alert).toHaveBeenCalledWith(fakeErrorResponse.message)
-    })
+        expect(dispatch).toHaveBeenCalledWith(showLoading());
+        expect(dispatch).toHaveBeenCalledWith(hideLoading());
+        expect(window.alert).toHaveBeenCalledWith(fakeErrorResponse.message);
+    });
 });

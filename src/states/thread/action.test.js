@@ -6,6 +6,13 @@
  *  - should correctly send an action when the data addition is failed
  */
 
+import {
+    afterEach, beforeEach, describe, expect, it, vi,
+} from "vitest";
+import { hideLoading, showLoading } from "react-redux-loading-bar";
+import api from "../../utils/api";
+import { addThreadActionCreator, asyncAddThread } from "./action";
+
 const fakeThreadsResponse = [
     {
         id: "thread-1",
@@ -33,11 +40,6 @@ const fakeThreadRequest = {
 };
 
 const fakeErrorResponse = new Error("Ups, something went wrong");
-
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import api from "../../utils/api";
-import { addThreadActionCreator, asyncAddThread } from "./action";
-import { hideLoading, showLoading } from "react-redux-loading-bar";
 
 describe("asyncAddThread thunk", async () => {
     beforeEach(() => {
@@ -81,8 +83,8 @@ describe("asyncAddThread thunk", async () => {
         await asyncAddThread(fakeThreadRequest)(dispatch);
 
         // assert
-        expect(dispatch).toHaveBeenCalledWith(showLoading())
-        expect(dispatch).toHaveBeenCalledWith(hideLoading())
-        expect(window.alert).toHaveBeenCalledWith(fakeErrorResponse.message)
-    })
+        expect(dispatch).toHaveBeenCalledWith(showLoading());
+        expect(dispatch).toHaveBeenCalledWith(hideLoading());
+        expect(window.alert).toHaveBeenCalledWith(fakeErrorResponse.message);
+    });
 });

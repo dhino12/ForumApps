@@ -102,6 +102,7 @@ export default function Modal({ setOpenModal, addThread, authUser }) {
             kamu lagi mikir apa yah ?
           </h1>
           <textarea
+            id="title"
             cols="60"
             rows="2"
             placeholder="Cerita kamu kasih judul apa ya ?"
@@ -126,6 +127,7 @@ export default function Modal({ setOpenModal, addThread, authUser }) {
             /320
           </p>
           <textarea
+            id="body"
             cols="60"
             rows="8"
             placeholder="apa yang kamu pikirkan ?"

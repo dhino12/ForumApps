@@ -19,7 +19,7 @@ function asyncPopulateUserAndThread() {
                 api.removeAccessToken();
                 window.location.href = '/login';
             }
-            alert(error.message)
+            alert(error.message);
         }
         dispatch(hideLoading());
     };
