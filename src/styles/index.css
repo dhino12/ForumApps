@@ -45,6 +45,7 @@ code {
   display: grid;
   grid-template-columns: repeat(3, 2fr);
   margin-right: 10px;
+  grid-auto-rows: max-content
 }
 
 .container-thread-list .leaderboards h1 {
